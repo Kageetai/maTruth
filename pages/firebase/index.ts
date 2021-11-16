@@ -14,3 +14,5 @@ const firebaseConfig: FirebaseOptions = {
 
 export const app = initializeApp(firebaseConfig);
 export const store = getFirestore(app);
+
+export const COLLECTION = "sessions";

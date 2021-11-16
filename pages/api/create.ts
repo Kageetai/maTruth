@@ -5,7 +5,7 @@ import {
   collection,
   DocumentData,
 } from "firebase/firestore/lite";
-import { store } from "../firebase";
+import { COLLECTION, store } from "../firebase";
 
 type Data = {
   docList?: DocumentData[];
@@ -23,7 +23,7 @@ export default async function handler(
   const name = Array.isArray(req.query.name)
     ? req.query.name[0]
     : req.query.name;
-  const sessionsCol = collection(store, "sessions");
+  const sessionsCol = collection(store, COLLECTION);
 
   await addDoc(sessionsCol, { name });
   const snap = await getDocs(sessionsCol);
